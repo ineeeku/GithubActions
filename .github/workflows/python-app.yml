@@ -18,10 +18,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Display Python version
         id: display
-        run: python -c "import sys; print(sys.version)"
+        run: python -c "import sys; print(f'Python version: {sys.version_info}')"
       - name: Save output to file
         run: |
-          echo "${{ steps.display.outputs.stdout }}" > python_version_${{ matrix.python-version }}.txt
+          echo "Python version: ${{ steps.display.outputs.stdout }}" > python_version_${{ matrix.python-version }}.txt
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
