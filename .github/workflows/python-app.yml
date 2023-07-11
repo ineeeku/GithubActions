@@ -24,6 +24,7 @@ jobs:
       - name: Save output to file
         run: |
           echo "Python version: $PYTHON_VERSION" > python_version_${{ matrix.python-version }}.txt
+          echo "Python version: $PYTHON_VERSION" >> python_version_${{ matrix.python-version }}.txt
           echo "${{ steps.display.outputs.stdout }}" >> python_version_${{ matrix.python-version }}.txt
       - name: Upload artifact
         uses: actions/upload-artifact@v2
