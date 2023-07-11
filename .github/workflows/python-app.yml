@@ -21,3 +21,8 @@ jobs:
         run: python -c "import sys; print(sys.version)"
       - name: Save output to file
         run: echo "${{ steps.display.outputs.stdout }}" > python_version.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: python-version
+          path: python_version.txt
